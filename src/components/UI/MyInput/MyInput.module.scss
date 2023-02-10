@@ -1,0 +1,23 @@
+.input {
+	width: 100%;
+	background: #FFFFFF;
+	border: 1px solid #C9CACC;
+	border-radius: 4px;
+	color: #424242;
+	height: 50px;
+	padding: 0 15px;
+	font-size: 18px;
+	transition: all 0.3s ease 0s;
+
+	&Error {
+		color: #EB1717;
+	}
+}
+
+.error {
+	margin-top: 7px;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	color: #EB1717;
+}
