@@ -1,21 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import Hotels from '../components/Hotels/Hotels';
 
 const HotelPage = () => {
 
-	const navigation = useNavigate();
-
-	const exitHandler = () => {
-		localStorage.setItem('auth', false);
-		navigation('/', {replace: true})
-	}
+	
 
 	return (
 		<>
-		<div>
-			HotelPage
-		</div>
-		<button onClick={exitHandler} >Exit</button>
+			<Hotels />
 		</>
 	);
 }

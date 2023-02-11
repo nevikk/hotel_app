@@ -1,0 +1,57 @@
+@import '../../styleVariables/styleVariables.scss';
+
+.body {
+	padding: 48px 32px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 28px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+	border-radius: 16px;
+}
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 16px;
+	max-width: 100%;
+}
+.titleRow {
+	display: flex;
+	align-items: center;
+	column-gap: 48px;
+}
+.title {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 38px;
+	color: $mainColor;
+}
+.city {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 38px;
+	color: #424242;
+	position: relative;
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 8px;
+		height: 17px;
+		position: absolute;
+		top: 50%;
+		left: -28px;
+		transform: translateY(-50%);
+		background: url("data:image/svg+xml,%3Csvg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.33334L9.66667 10L1 18.6667' stroke='%23A7A7A7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center/cover;
+	}
+}
+.date {
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 28px;
+	color: $greenColor;
+}
+
+.carouselContainer {
+	max-width: 600px;
+}

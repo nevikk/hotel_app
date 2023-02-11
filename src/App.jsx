@@ -1,12 +1,21 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router';
-import './App.css';
 import RequireAuth from './hoc/RequireAuth';
 import AuthPage from './pages/AuthPage';
 import HotelPage from './pages/HotelPage';
+import { getCities } from './redux/actions/citiesActionCreator';
 
 function App() {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getCities());
+	}, [])
+
 	return (
-		<div className='App'>
+		<div>
 			<Routes>
 				<Route
 					path='/'

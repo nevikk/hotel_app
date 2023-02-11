@@ -10,16 +10,4 @@
 	padding: 0 15px;
 	font-size: 18px;
 	transition: all 0.3s ease 0s;
-
-	&Error {
-		color: $redColor;
-	}
-}
-
-.error {
-	margin-top: 7px;
-	font-weight: 300;
-	font-size: 12px;
-	line-height: 14px;
-	color: $redColor;
 }

@@ -16,6 +16,7 @@ const MyInput = ({
 	return (
 		<>
 			<input
+				autoComplete='off'
 				onFocusCapture={onFocus}
 				className={inputClass}
 				name={name}
