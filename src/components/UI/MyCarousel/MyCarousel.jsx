@@ -3,21 +3,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
 
-export default function MyCarousel() {
+export default function MyCarousel({images}) {
 	return (
 		<div className={classes.carousel}>
 			<Swiper
 				spaceBetween={12}
 				centerInsufficientSlides = {true}
 				slidesPerView={3.5}
-				onSlideChange={() => console.log('slide change')}
-				onSwiper={(swiper) => console.log(swiper)}
 			>
-				<SwiperSlide><img src='../img/carousel/item-1.png' className={classes.slide} /></SwiperSlide>
-				<SwiperSlide><img src='../img/carousel/item-1.jpg' className={classes.slide}/></SwiperSlide>
-				<SwiperSlide><img src='../img/carousel/item-1.jpg' className={classes.slide}/></SwiperSlide>
-				<SwiperSlide><img src='../img/carousel/item-1.jpg' className={classes.slide}/></SwiperSlide>
-				<SwiperSlide><img src='../img/carousel/item-1.jpg' className={classes.slide}/></SwiperSlide>
+				{images.map((imgSrc, index) => (
+					<SwiperSlide key={index} ><img src={imgSrc} className={classes.slide} alt="slide"/></SwiperSlide>
+				))}
 			</Swiper>
 		{/* <div className={classes.carousel}>MyCarousel</div> */}
 		</div>

@@ -4,3 +4,7 @@ export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = 'SET_ERROR';
 export const GET_HOTELS = 'GET_HOTELS';
 export const SET_HOTELS = 'SET_HOTELS';
+export const SET_FILTER = 'SET_FILTER';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const REMOVE_FROM_FAVORITE = 'REMOVE_FROM_FAVORITE';
+export const SET_SORT = 'SET_SORT';

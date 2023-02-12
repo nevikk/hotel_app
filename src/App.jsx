@@ -1,18 +1,12 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router';
 import RequireAuth from './hoc/RequireAuth';
 import AuthPage from './pages/AuthPage';
 import HotelPage from './pages/HotelPage';
-import { getCities } from './redux/actions/citiesActionCreator';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from './redux/actions/hotelsActionCreator';
 
 function App() {
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(getCities());
-	}, [])
 
 	return (
 		<div>

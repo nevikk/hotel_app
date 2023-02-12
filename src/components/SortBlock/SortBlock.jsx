@@ -1,14 +1,16 @@
 import SortItem from '../SortItem/SortItem';
 import classes from './SortBlock.module.scss';
+import { useSelector } from 'react-redux';
 
 export default function SortBlock() {
-	const initial = ['Рейтинг', 'Цена'];
+
+	const {params} = useSelector(state => state.sortReducer);
 
 	return (
 		<>
 			<div className={classes.row}>
-				{initial.map((sort, index) => (
-					<SortItem key={index} name={sort} />
+				{params.map((sort, index) => (
+					<SortItem key={index} sort={sort} />
 				))}
 			</div>
 		</>

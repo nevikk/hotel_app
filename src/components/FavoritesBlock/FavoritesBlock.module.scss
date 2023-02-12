@@ -16,3 +16,30 @@
 	line-height: 28px;
 	color: $mainColor;
 }
+
+.favItems {
+	max-height: 245px;
+	overflow: auto;
+	padding-right: 14px;
+	scrollbar-color: #41522E #E7E7E7; /* «цвет ползунка» «цвет полосы скроллбара» */
+	scrollbar-width: thin;
+	scrollbar-arrow-color: transparent;
+	&::-webkit-scrollbar {
+		width: 2px; /* ширина для вертикального скролла */
+		background-color: #E7E7E7;
+		border-radius: 2px;
+  }
+  
+  /* ползунок скроллбара */
+  &::-webkit-scrollbar-thumb {
+		background-color: #41522E;
+		border-radius: 2px;
+  }
+}
+
+.empty {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	color: $mainColor;
+}

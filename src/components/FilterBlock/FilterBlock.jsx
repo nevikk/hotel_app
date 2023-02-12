@@ -3,13 +3,53 @@ import MyButton from '../UI/MyButton/MyButton';
 import MyDateInput from '../UI/MyDateInput/MyDateInput';
 import MyInput from '../UI/MyInput/MyInput';
 import classes from './FilterBlock.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from './../../redux/actions/hotelsActionCreator';
 export default function FilterBlock() {
 
-	const todayDate = new Date();
-	const todayDateString = todayDate.getFullYear() + "-" + (todayDate.getMonth() + 1 < 10 ? '0'.concat(String(todayDate.getMonth() + 1)) : todayDate.getMonth() + 1) + "-" + todayDate.getDate();
+	const { filter, day } = useSelector(state => state.hotelsReducer);
+	const {cities} = useSelector(state => state.citiesReducer);
+	const dispatch = useDispatch();
+
+	// Состояние значений и ошибок полей фильтра
+	const [locationValue, setLocationValue] = useState('Москва');
+	const [errorLocationValue, setErrorLocationValue] = useState('');
+	const [errorDayValue, setErrorDayValue] = useState('');
+	const [dayValue, setDayValue] = useState(String(day));
+	const [dateValue, setDateValue] = useState(filter.checkIn);
 
 	const submitHandler = (event) => {
 		event.preventDefault();
+		// Если в объекте городов есть элемент с ключом, в виде российского названия, то город есть в базе
+		if (!cities[locationValue.toLowerCase().replaceAll(' ', '')]) {
+			setErrorLocationValue('Город не найден');
+			return false;
+		}
+		if (dayValue < 1) {
+			setErrorDayValue('Количество должно быть больше 0');
+			return false;
+		}
+
+		let dateCheckOut = new Date(dateValue);
+
+		// Получаем дату выезда из отеля
+		dateCheckOut.setDate(dateCheckOut.getDate() + parseInt(dayValue));
+
+		// Привотим к нужному виду строку даты выезда
+		const checkOut = dateCheckOut.toLocaleDateString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit' }).split('.').reverse().join('-');
+
+		// Формируем объект фильтра
+		const filter = {location: cities[locationValue.toLowerCase().replaceAll(' ', '')], checkIn: dateValue, checkOut}
+
+
+		dispatch(setFilter({filter, day: dayValue, locationRu: locationValue}));
+	}
+
+	// Запрещаем вводить в поле количества дней что-либо, кроме чисел
+	const inputDayHandler = (event) => {
+		if (!event.target.value.match(/[^0-9]/g)) {
+			setDayValue(event.target.value);
+		}
 	}
 
 	return (
@@ -18,15 +58,15 @@ export default function FilterBlock() {
 				<form onSubmit={(event) => submitHandler(event)} className={classes.form}>
 					<label className={classes.formItem}>
 						<div className={classes.itemTitle}>Локация</div>
-						<MyInput type='text' name="location" />
+						<MyInput error={errorLocationValue} onFocus={() => setErrorLocationValue('')} value={locationValue} onInput={(event) => setLocationValue(event.target.value)} type='text' name="location" />
 					</label>
 					<label className={classes.formItem}>
 						<div className={classes.itemTitle}>Дата заселения</div>
-						<MyDateInput name="settlement-date" min={todayDateString} />
+						<MyDateInput value={dateValue} onChange={event => {setDateValue(event.target.value)}} name="settlement-date" min={filter.checkIn} />
 					</label>
 					<label className={classes.formItem}>
 						<div className={classes.itemTitle}>Количество дней</div>
-						<MyInput type='text' name="days" />
+						<MyInput error={errorDayValue} onFocus={() => {setErrorDayValue('')}} value={dayValue} onInput={(event) => inputDayHandler(event)} type='text' name="days" />
 					</label>
 					<MyButton type='submit'>Найти</MyButton>
 				</form>

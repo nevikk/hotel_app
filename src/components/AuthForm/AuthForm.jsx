@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router';
 
 const AuthForm = () => {
+	// Состояния для значения и ошибок логина и пароля
 	const [loginValue, setLoginValue] = useState('');
 	const [passwordValue, setPasswordValue] = useState('');
 	const [loginError, setLoginError] = useState('');
