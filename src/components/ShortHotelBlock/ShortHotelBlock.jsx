@@ -1,6 +1,6 @@
 import classes from './ShortHotelBlock.module.scss';
 import { formatPrice, declOfNum, formatDate } from '../../helpers/index';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeFromFavorite } from './../../redux/actions/hotelsActionCreator';
 
 export default function ShortHotelBlock({ hotel }) {

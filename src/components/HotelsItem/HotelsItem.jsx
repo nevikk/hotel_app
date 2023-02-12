@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import classes from './HotelsItem.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { formatDate } from '../../helpers';

@@ -1,14 +1,13 @@
-@import '../../styleVariables/styleVariables.scss';
+@import "../../styleVariables/styleVariables.scss";
 
 .body {
 	padding: 48px 32px;
 	display: flex;
 	flex-direction: column;
 	row-gap: 28px;
-	background: #FFFFFF;
+	background: #ffffff;
 	box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
 	border-radius: 16px;
-	// height: 100%;
 }
 .header {
 	display: flex;
@@ -16,6 +15,8 @@
 	align-items: center;
 	column-gap: 16px;
 	max-width: 100%;
+	flex-wrap: wrap;
+	row-gap: 8px;
 }
 .titleRow {
 	display: flex;
@@ -35,7 +36,7 @@
 	color: #424242;
 	position: relative;
 	&::before {
-		content: '';
+		content: "";
 		display: inline-block;
 		width: 8px;
 		height: 17px;
@@ -43,7 +44,8 @@
 		top: 50%;
 		left: -28px;
 		transform: translateY(-50%);
-		background: url("data:image/svg+xml,%3Csvg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.33334L9.66667 10L1 18.6667' stroke='%23A7A7A7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat center/cover;
+		background: url("data:image/svg+xml,%3Csvg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.33334L9.66667 10L1 18.6667' stroke='%23A7A7A7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+			no-repeat center/cover;
 	}
 }
 .date {
@@ -61,20 +63,18 @@
 	max-height: 520px;
 	overflow: auto;
 	padding-right: 14px;
-	scrollbar-color: #41522E #E7E7E7; /* «цвет ползунка» «цвет полосы скроллбара» */
+	scrollbar-color: #41522e #e7e7e7; /* «цвет ползунка» «цвет полосы скроллбара» */
 	scrollbar-width: thin;
 	scrollbar-arrow-color: transparent;
 	&::-webkit-scrollbar {
 		width: 2px; /* ширина для вертикального скролла */
-		background-color: #E7E7E7;
+		background-color: #e7e7e7;
 		border-radius: 2px;
-  }
-  
-  /* ползунок скроллбара */
-  &::-webkit-scrollbar-thumb {
-		background-color: #41522E;
+	}
+
+	/* ползунок скроллбара */
+	&::-webkit-scrollbar-thumb {
+		background-color: #41522e;
 		border-radius: 2px;
-  }
+	}
 }
-
-

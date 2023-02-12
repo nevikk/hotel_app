@@ -18,6 +18,9 @@ export default function FilterBlock() {
 	const [dayValue, setDayValue] = useState(String(day));
 	const [dateValue, setDateValue] = useState(filter.checkIn);
 
+	const minDate = new Date().toLocaleDateString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit' }).split('.').reverse().join('-');
+
+
 	const submitHandler = (event) => {
 		event.preventDefault();
 		// Если в объекте городов есть элемент с ключом, в виде российского названия, то город есть в базе
@@ -31,6 +34,7 @@ export default function FilterBlock() {
 		}
 
 		let dateCheckOut = new Date(dateValue);
+
 
 		// Получаем дату выезда из отеля
 		dateCheckOut.setDate(dateCheckOut.getDate() + parseInt(dayValue));
@@ -62,7 +66,7 @@ export default function FilterBlock() {
 					</label>
 					<label className={classes.formItem}>
 						<div className={classes.itemTitle}>Дата заселения</div>
-						<MyDateInput value={dateValue} onChange={event => {setDateValue(event.target.value)}} name="settlement-date" min={filter.checkIn} />
+						<MyDateInput value={dateValue} onChange={event => {setDateValue(event.target.value)}} name="settlement-date" min={minDate} />
 					</label>
 					<label className={classes.formItem}>
 						<div className={classes.itemTitle}>Количество дней</div>

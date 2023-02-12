@@ -1,4 +1,4 @@
-import { takeEvery, fork, put, call } from '@redux-saga/core/effects';
+import { takeEvery, put, call } from '@redux-saga/core/effects';
 import { setCities } from '../actions/citiesActionCreator';
 import { setError, setLoading } from '../actions/hotelsActionCreator';
 import { fetchCities } from '../asyncAction/cities';
