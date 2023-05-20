@@ -1,6 +1,6 @@
 # Демо
 
-https://anatoliinovikov.ru/projects/hotels/auth
+https://anatoliinovikov.ru/projects/hotels/
 
 # Getting Started with Create React App
 
